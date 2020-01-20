@@ -1,0 +1,215 @@
+{
+  "sidebar": [
+    {
+      "name": "Category",
+      "items": [
+        {
+          "name": "Curtains",
+          "items": [
+            {
+              "img": "",
+              "name": "Blackout Curtain - Pegaze",
+              "price": "$29.99"
+            },
+            {
+              "img": "",
+              "name": "Blackout Curtain - Chita",
+              "price": "$59.99 - $79.99"
+            }
+          ]
+        },
+        {
+          "name": "Blinds & Shades",
+          "items": [
+            {
+              "img": "",
+              "name": "Blackout Curtain - Pegaze",
+              "price": "$29.99"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lighting",
+      "items": [
+        {
+          "name": "Curtains",
+          "items": [
+            {
+              "img": "",
+              "name": "Blackout Curtain - Pegaze",
+              "price": "$29.99"
+            },
+            {
+              "img": "",
+              "name": "Blackout Curtain - Chita",
+              "price": "$59.99 - $79.99"
+            }
+          ]
+        },
+        {
+          "name": "Room Darkening",
+          "items": [
+            {
+              "img": "",
+              "name": "Blackout Curtain - Pegaze",
+              "price": "$29.99"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Colour",
+      "items": [
+        {
+          "name": "Curtains",
+          "items": [
+            {
+              "img": "",
+              "name": "Blackout Curtain - Pegaze",
+              "price": "$29.99"
+            },
+            {
+              "img": "",
+              "name": "Blackout Curtain - Chita",
+              "price": "$59.99 - $79.99"
+            }
+          ]
+        },
+        {
+          "name": "Blinds & Shades",
+          "items": [
+            {
+              "img": "",
+              "name": "Blackout Curtain - Pegaze",
+              "price": "$29.99"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Price",
+      "items": [
+        {
+          "name": "Curtains",
+          "items": [
+            {
+              "img": "",
+              "name": "Blackout Curtain - Pegaze",
+              "price": "$29.99"
+            },
+            {
+              "img": "",
+              "name": "Blackout Curtain - Chita",
+              "price": "$59.99 - $79.99"
+            }
+          ]
+        },
+        {
+          "name": "Blinds & Shades",
+          "items": [
+            {
+              "img": "",
+              "name": "Blackout Curtain - Pegaze",
+              "price": "$29.99"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Length",
+      "items": [
+        {
+          "name": "Curtains",
+          "items": [
+            {
+              "img": "",
+              "name": "Blackout Curtain - Pegaze",
+              "price": "$29.99"
+            },
+            {
+              "img": "",
+              "name": "Blackout Curtain - Chita",
+              "price": "$59.99 - $79.99"
+            }
+          ]
+        },
+        {
+          "name": "Blinds & Shades",
+          "items": [
+            {
+              "img": "",
+              "name": "Blackout Curtain - Pegaze",
+              "price": "$29.99"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Header",
+      "items": [
+        {
+          "name": "Curtains",
+          "items": [
+            {
+              "img": "",
+              "name": "Blackout Curtain - Pegaze",
+              "price": "$29.99"
+            },
+            {
+              "img": "",
+              "name": "Blackout Curtain - Chita",
+              "price": "$59.99 - $79.99"
+            }
+          ]
+        },
+        {
+          "name": "Blinds & Shades",
+          "items": [
+            {
+              "img": "",
+              "name": "Blackout Curtain - Pegaze",
+              "price": "$29.99"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Curtain Rods",
+      "color": "#ff880e",
+      "items": [
+        {
+          "name": "Curtains",
+          "items": [
+            {
+              "img": "",
+              "name": "Blackout Curtain - Pegaze",
+              "price": "$29.99"
+            },
+            {
+              "img": "",
+              "name": "Blackout Curtain - Chita",
+              "price": "$59.99 - $79.99"
+            }
+          ]
+        },
+        {
+          "name": "Blinds & Shades",
+          "items": [
+            {
+              "img": "",
+              "name": "Blackout Curtain - Pegaze",
+              "price": "$29.99"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
