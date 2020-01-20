@@ -1,20 +1,23 @@
 <template>
   <div id="app">
     <Header />
-    <img alt="Vue logo" src="@/assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <Container>
+      <Scene type="livingroom" />
+    </Container>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import HelloWorld from '@/components/HelloWorld.vue'
 import Header from '@/components/Header.vue'
+import Container from '@/components/Container.vue'
+import Scene from '@/components/Scene/Scene.vue'
 
 @Component({
   components: {
-    HelloWorld,
-    Header
+    Header,
+    Container,
+    Scene
   }
 })
 export default class App extends Vue {}
@@ -29,4 +32,28 @@ export default class App extends Vue {}
   text-align: center;
   color: #2c3e50;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+.container {
+  margin-top: 55px;
+  margin-bottom: 62px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.scene {}
 </style>
