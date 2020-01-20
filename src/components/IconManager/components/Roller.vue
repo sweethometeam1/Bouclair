@@ -7,8 +7,8 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component
 export default class Roller extends Vue {
-  @Prop({ default: 27 }) private width?: string | number;
-  @Prop({ default: 30 }) private height?: string | number;
+  @Prop({ default: 27 }) private width!: string | number;
+  @Prop({ default: 30 }) private height!: string | number;
   @Prop() private fill?: string | number;
 }
 </script>
