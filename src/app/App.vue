@@ -3,6 +3,7 @@
     <Header />
     <Container>
       <Scene type="livingroom" />
+      <Sidebar />
     </Container>
   </div>
 </template>
@@ -12,12 +13,14 @@ import { Component, Vue } from 'vue-property-decorator'
 import Header from '@/components/Header.vue'
 import Container from '@/components/Container.vue'
 import Scene from '@/components/Scene/Scene.vue'
+import Sidebar from '@/components/Sidebar.vue'
 
 @Component({
   components: {
     Header,
     Container,
-    Scene
+    Scene,
+    Sidebar
   }
 })
 export default class App extends Vue {}
@@ -56,4 +59,10 @@ button {
 }
 
 .scene {}
+
+.sidebar {
+  min-width: 300px;
+  width: 300px;
+  margin-left: 40px;
+}
 </style>
