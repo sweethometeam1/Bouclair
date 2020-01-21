@@ -13,6 +13,11 @@
             <div class="tab__counter" v-if="showCounters" :style="tab.color ? 'background-color:' + tab.color : ''">{{ '0' + (index + 1) }}</div>
           </button>
         </li>
+        <li class="tabs-header__item" style="width: 100%">
+          <div class="tab tab_fake" :class="[showCounters ? 'tab_counter' : '']">
+            <div class="tab__name">.</div>
+          </div>
+        </li>
       </ul>
       <button class="tabs-btn tabs-btn_abs tabs-btn_next" title="next tab" @click="next()"><IconManager class="tabs-btn__ico" name="chevron-right" /></button>
     </div>
@@ -26,6 +31,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 import IconManager from './IconManager/IconManager.vue'
 import { VNode } from 'vue'
+import * as animate from '@/assets/libs/animate.ts'
 
 interface TabData {
   name: string,
@@ -72,9 +78,12 @@ export default class Tabs extends Vue {
 
       if (children && children[index]) {
         const child = children[index] as HTMLElement
+        const offsetGap = parent.scrollLeft
         const offsetLeft = child.offsetLeft
 
-        parent.scrollTo(offsetLeft, 0)
+        animate.start((progress: number) => {
+          parent.scrollTo(offsetGap + (offsetLeft - offsetGap) * progress, 0)
+        }, 300, animate.f.linear)
       }
     }
   }
@@ -239,6 +248,10 @@ export default class Tabs extends Vue {
       min-width: $s-counter-w;
       opacity: 0;
       transition: opacity $t-duration $t-function;
+    }
+
+    &#{&}_fake {
+      color: transparent;
     }
 
     &#{&}_counter {
