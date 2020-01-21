@@ -1,13 +1,29 @@
 <template>
   <div class="sidebar">
+    <Tabs :showCounters="true">
+      <Tab v-for="(tab, index) in data" :key="index" :name="tab.name" :color="tab.color">
+        <Tabs>
+          <Tab v-for="(tab, index) in tab.items" :key="index" :name="addItemsCounter(tab)">
+            {{ tab.items }}
+          </Tab>
+        </Tabs>
+      </Tab>
+    </Tabs>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import Tabs from './Tabs.vue'
+import Tab from './Tab.vue'
 const mock = require('@/data.mock.json')
 
-@Component
+@Component({
+  components: {
+    Tabs,
+    Tab
+  }
+})
 export default class Sidebar extends Vue {
   data: any[];
 
