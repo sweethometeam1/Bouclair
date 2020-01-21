@@ -1,5 +1,5 @@
 <template>
-  <div class="tabs-content" :color="color" :name="name" v-show="active">
+  <div class="tabs-content" :color="color" :name="name" v-if="active">
     <slot />
   </div>
 </template>

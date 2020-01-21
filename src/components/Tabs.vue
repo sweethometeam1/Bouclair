@@ -1,7 +1,12 @@
 <template>
   <section class="tabs">
     <div class="tabs__header">
-      <button class="tabs-btn tabs-btn_abs tabs-btn_prev" title="previous tab" @click="prev()"><IconManager class="tabs-btn__ico" name="chevron-left" /></button>
+      <button
+        class="tabs-btn tabs-btn_abs tabs-btn_prev"
+        title="previous tab"
+        @click="prev()"
+        v-show="active > 0"
+      ><IconManager class="tabs-btn__ico" name="chevron-left" /></button>
       <ul class="tabs-header" :class="[showCounters ? 'tabs-header_counter' : '']">
         <li class="tabs-header__item" v-for="(tab, index) in tabs" :key="index">
           <button
@@ -19,7 +24,12 @@
           </div>
         </li>
       </ul>
-      <button class="tabs-btn tabs-btn_abs tabs-btn_next" title="next tab" @click="next()"><IconManager class="tabs-btn__ico" name="chevron-right" /></button>
+      <button
+        class="tabs-btn tabs-btn_abs tabs-btn_next"
+        title="next tab"
+        @click="next()"
+        v-show="active < tabs.length - 1"
+      ><IconManager class="tabs-btn__ico" name="chevron-right" /></button>
     </div>
     <div class="tabs__content">
       <slot />
@@ -52,7 +62,7 @@ export default class Tabs extends Vue {
 
   constructor (props: any) {
     super(props)
-    this.active = 0
+    this.active = -1
     this.tabs = []
     this.$tabs = []
   }
@@ -66,7 +76,7 @@ export default class Tabs extends Vue {
         color: $tab.$props.color
       }))
 
-      this.setActiveTab(0)
+      setTimeout(() => this.setActiveTab(0))
     }
   }
 
@@ -252,6 +262,7 @@ export default class Tabs extends Vue {
 
     &#{&}_fake {
       color: transparent;
+      pointer-events: none;
     }
 
     &#{&}_counter {
