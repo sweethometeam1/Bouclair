@@ -4,7 +4,10 @@
       <Tab v-for="(tab, index) in data" :key="index" :name="tab.name" :color="tab.color">
         <Tabs>
           <Tab v-for="(tab, index) in tab.items" :key="index" :name="addItemsCounter(tab)">
-            {{ tab.items }}
+            <div v-for="(product, index) in tab.items" :key="index">
+              {{ product }}
+              <img :src="product.img" alt="" :title="product">
+            </div>
           </Tab>
         </Tabs>
       </Tab>
