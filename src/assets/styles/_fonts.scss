@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'CircularStd';
+  src: url('../assets/fonts/CircularStd/CircularStd-Bold.woff2') format('woff2'),
+      url('../assets/fonts/CircularStd/CircularStd-Bold.woff') format('woff'),
+      url('../assets/fonts/CircularStd/CircularStd-Bold.eot') format('embedded-opentype'),
+      url('../assets/fonts/CircularStd/CircularStd-Bold.ttf') format('opentype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'CircularStd';
+  src: url('../assets/fonts/CircularStd/CircularStd-Medium.woff2') format('woff2'),
+      url('../assets/fonts/CircularStd/CircularStd-Medium.woff') format('woff'),
+      url('../assets/fonts/CircularStd/CircularStd-Medium.eot') format('embedded-opentype'),
+      url('../assets/fonts/CircularStd/CircularStd-Medium.ttf') format('opentype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'CircularStd';
+  src: url('../assets/fonts/CircularStd/CircularStd-Book.woff2') format('woff2'),
+      url('../assets/fonts/CircularStd/CircularStd-Book.woff') format('woff'),
+      url('../assets/fonts/CircularStd/CircularStd-Book.eot') format('embedded-opentype'),
+      url('../assets/fonts/CircularStd/CircularStd-Book.ttf') format('opentype');
+  font-weight: 400;
+}
