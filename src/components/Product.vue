@@ -61,7 +61,8 @@ export default class Product extends Vue {
       }
 
       &__txt {
-        margin: 5px 15px;
+        margin: 5px 13px;
+        text-align: left;
 
         &:first-of-type {
           margin-top: 10px;
