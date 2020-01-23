@@ -288,6 +288,10 @@ export default class Tabs extends Vue {
       }
     }
 
+    &#{&}_active &__name {
+      font-weight: 700;
+    }
+
     &#{&}_active &__counter {
       opacity: 1;
     }
