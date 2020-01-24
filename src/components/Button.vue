@@ -21,7 +21,7 @@ export default class Button extends Vue {
 
   .btn {
     width: 100%;
-    display: inline-block;
+    display: inline-flex;
     border: 0;
     background: transparent;
     padding: 17px 20px 15px;
@@ -33,6 +33,17 @@ export default class Button extends Vue {
     &#{&}_dark {
       background: $btn-dark-bg;
       color: $btn-dark-c;
+    }
+
+    &#{&}_dark-round {
+      background: $btn-dark-bg;
+      color: $btn-dark-c;
+      padding: 10px;
+      border-radius: 15px;
+
+      svg {
+        fill: $btn-dark-c;
+      }
     }
   }
 </style>
