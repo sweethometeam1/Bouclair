@@ -5,12 +5,14 @@
       <Scene type="livingroom" />
       <Sidebar />
     </Container>
+    <Footer />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 import Container from '@/components/Container.vue'
 import Scene from '@/components/Scene/Scene.vue'
 import Sidebar from '@/components/Sidebar.vue'
@@ -18,6 +20,7 @@ import Sidebar from '@/components/Sidebar.vue'
 @Component({
   components: {
     Header,
+    Footer,
     Container,
     Scene,
     Sidebar

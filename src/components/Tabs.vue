@@ -62,12 +62,16 @@ export default class Tabs extends Vue {
 
   constructor (props: any) {
     super(props)
-    this.active = -1
+    this.active = 0
     this.tabs = []
     this.$tabs = []
   }
 
   mounted () {
+    // custom buttons
+    this.$parent.$on('setTabsIndex', this.setActiveTab)
+
+    // getting tabs
     this.$tabs = this.$children.filter($tab => $tab.$vnode.componentOptions && $tab.$vnode.componentOptions.tag === 'Tab')
 
     if (this.$tabs.length) {
@@ -107,14 +111,15 @@ export default class Tabs extends Vue {
   }
 
   setActiveTab (index: number) {
-    if (index > -1 && this.$tabs[index]) {
-      this.active = index
+    this.active = (index >= this.tabs.length || index < 0) ? 0 : index
 
+    if (this.$tabs[this.active]) {
       this.$tabs.map(($tab: any, i) => {
-        $tab.active = index === i
+        $tab.active = this.active === i
       })
 
-      this.scrollToTab(index)
+      this.scrollToTab(this.active)
+      this.$emit('changed', this.active)
     }
   }
 }
