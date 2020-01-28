@@ -61,4 +61,16 @@ export default class SceneButton extends Vue {
       background-color: #f9f9f9;
     }
   }
+
+  @media screen and (max-width: 640px) and (orientation: portrait) {
+    .scene__buttons {
+      .scene-button {
+        flex-direction: row;
+
+        &__ico {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
 </style>
