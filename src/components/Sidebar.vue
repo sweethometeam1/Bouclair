@@ -5,7 +5,7 @@
         <Tabs>
           <Tab v-for="(tab, index) in tab.items" :key="index" :name="addItemsCounter(tab)">
             <div class="products">
-              <Product v-for="(product, index) in tab.items" :key="index"  :data="product"/>
+              <Product v-for="(product, index) in tab.items" :key="index" :data="product" @click="setProduct(product)" @added="addToCart(product)" />
             </div>
           </Tab>
         </Tabs>
@@ -60,6 +60,14 @@ export default class Sidebar extends Vue {
       this.$store.commit('setMainTabIndex', current)
     }
   }
+
+  addToCart (product: any) {
+    console.log(`addToCart ${product.name} for ${product.price}`)
+  }
+
+  setProduct (product: any) {
+    this.$store.commit('setSceneCurtain', product.curtain)
+  }
 }
 </script>
 
@@ -72,5 +80,23 @@ export default class Sidebar extends Vue {
     padding-top: 40px;
     overflow-y: auto;
     max-height: 554px;
+  }
+
+  @media screen and (min-width: 640px) and (max-width: 768px) and (orientation: portrait) {
+    .products {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  @media screen and (min-width: 640px) and (max-width: 500px) and (orientation: portrait) {
+    .products {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media screen and (min-width: 640px) and (max-width: 768px) and (orientation: landscape) {
+    .products {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 </style>

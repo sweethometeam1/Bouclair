@@ -1,5 +1,5 @@
 <template>
-  <div class="product">
+  <div class="product" @click="$emit('click')">
     <div class="product__main">
       <div class="product-main">
         <div class="product-main__img">
@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="product__footer">
-      <Button @click="addToCart()">add to cart</Button>
+      <Button @click="$emit('added')">add to cart</Button>
     </div>
   </div>
 </template>
@@ -34,11 +34,8 @@ export default class Product extends Vue {
   @Prop() private data!: {
     img: string,
     name: string,
-    price: string
-  }
-
-  addToCart () {
-    console.log(`addToCart ${this.data.name} for ${this.data.price}`)
+    price: string,
+    curtain: string
   }
 }
 </script>
