@@ -301,4 +301,32 @@ export default class Tabs extends Vue {
       opacity: 1;
     }
   }
+
+  @media screen and (max-width: 768px) and (orientation: portrait) {
+    .tabs {
+      &-header {
+        width: calc(100vw - 140px);
+
+        &#{&}_counter {
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) and (orientation: portrait) {
+    .tabs {
+      &-header {
+        width: calc(100vw - 30px);
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) and (orientation: portrait) {
+    .tabs {
+      &-header {
+        width: calc(100vw - 30px);
+      }
+    }
+  }
 </style>
