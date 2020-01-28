@@ -9,32 +9,38 @@
             {
               "img": "/images/products/1.jpg",
               "name": "Blackout Curtain - Pegaze",
-              "price": "$29.99"
+              "price": "$29.99",
+              "curtain": "/images/curtains/1.png"
             },
             {
               "img": "/images/products/2.jpg",
               "name": "Blackout Curtain - Chita",
-              "price": "$59.99 - $79.99"
+              "price": "$59.99 - $79.99",
+              "curtain": "/images/curtains/2.png"
             },
             {
               "img": "/images/products/3.jpg",
               "name": "Blackout Curtain - Chita",
-              "price": "$59.99 - $79.99"
+              "price": "$59.99 - $79.99",
+              "curtain": "/images/curtains/3.png"
             },
             {
               "img": "/images/products/4.jpg",
               "name": "Blackout Curtain - Chita",
-              "price": "$59.99 - $79.99"
+              "price": "$59.99 - $79.99",
+              "curtain": "/images/curtains/1.png"
             },
             {
               "img": "/images/products/4.jpg",
               "name": "Blackout Curtain - Chita",
-              "price": "$59.99 - $79.99"
+              "price": "$59.99 - $79.99",
+              "curtain": "/images/curtains/2.png"
             },
             {
               "img": "/images/products/4.jpg",
               "name": "Blackout Curtain - Chita",
-              "price": "$59.99 - $79.99"
+              "price": "$59.99 - $79.99",
+              "curtain": "/images/curtains/3.png"
             }
           ]
         },
