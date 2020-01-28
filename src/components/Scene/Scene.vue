@@ -1,34 +1,39 @@
 <template>
   <div class="scene">
+    <div class="scene__room">
+      <LivingRoom v-if="current === 'livingroom'" />
+      <BedRoom v-if="current === 'bedroom'" />
+      <KidsRoom v-if="current === 'kidsroom'" />
+    </div>
     <div class="scene__buttons">
-      <SceneButton v-for="(active, name, index) in popups" :key="index" :name="name" :type="active ? 'active' : null" @click="togglePopup(name)">
-        <IconManager name="window-type" />
+      <SceneButton v-for="(active, name, index) in popups" :key="index" :name="name" :type="active.active ? 'active' : null" @click="togglePopup(name)">
+        <IconManager :name="active.ico" />
       </SceneButton>
     </div>
     <div class="scene__popups">
-      <ScenePopup v-for="(active, name, index) in popups" :key="index" :name="name" v-show="active" @close="togglePopup(name)">
-        <div v-if="name === 'Room'">
-          <div class="scene-popup-room">
-            <div class="scene-popup-room__btn">
-              <SceneButton
-                v-for="(scene, index) in scenes"
-                :key="index"
-                type="alt"
-                :name="scene.name"
-                :active="current === scene.type"
-                @click="setScene(scene.type)"
-              ></SceneButton>
+      <transition-group name="popup-fade">
+        <ScenePopup v-for="(active, name, index) in popups" :key="index + 1" :name="name"
+          v-show="active.active" @close="togglePopup(name)" :class="{'visible' : active.active}">
+          <div v-if="name === 'Room'">
+            <div class="scene-popup-room">
+              <div class="scene-popup-room__btn">
+                <SceneButton
+                  v-for="(scene, index) in scenes"
+                  :key="index"
+                  type="alt"
+                  :name="scene.name"
+                  :active="current === scene.type"
+                  @click="setScene(scene.type)"
+                ></SceneButton>
+              </div>
             </div>
           </div>
-        </div>
-        <div v-else-if="name === 'Color'">
-          Content
-        </div>
-      </ScenePopup>
+          <div v-else-if="name === 'Color'">
+            Content
+          </div>
+        </ScenePopup>
+      </transition-group>
     </div>
-    <LivingRoom v-if="current === 'livingroom'" class="scene__bg" />
-    <BedRoom v-if="current === 'bedroom'" class="scene__bg" />
-    <KidsRoom v-if="current === 'kidsroom'" class="scene__bg" />
   </div>
 </template>
 
@@ -60,7 +65,10 @@ export default class Scene extends Vue {
   }[]
   public current: string
   public popups: {
-    [name: string]: boolean
+    [name: string]: {
+      active: boolean,
+      ico: string
+    }
   }
 
   constructor (props: any) {
@@ -82,13 +90,31 @@ export default class Scene extends Vue {
     ]
     this.current = this.type
     this.popups = {
-      'Room': false,
-      'Color': false
+      'Room': {
+        active: false,
+        ico: 'window-type'
+      },
+      'Color': {
+        active: false,
+        ico: 'roller'
+      }
     }
   }
 
   togglePopup (name: string) {
-    this.popups[name] = !this.popups[name]
+    for (let popup in this.popups) {
+      this.$set(
+        this.popups[popup],
+        'active',
+        popup === name && !this.popups[popup].active
+      )
+    }
+  }
+
+  getActivePopup () {
+    for (let popup in this.popups) {
+      if (this.popups[popup].active) return this.popups[popup]
+    }
   }
 
   setScene (name: string) {
@@ -104,11 +130,9 @@ export default class Scene extends Vue {
     font-size: 0;
     position: relative;
 
-    &__bg {
+    &__room {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center top;
     }
 
     &__buttons {
@@ -123,12 +147,95 @@ export default class Scene extends Vue {
       position: absolute;
       top: 20px;
       left: 100px;
+      z-index: 3;
     }
 
     &-button {
       & + & {
         border-top: 1px solid #f9f9f9;
       }
+    }
+  }
+
+  .popup-fade-enter-active, .popup-fade-leave-active {
+    transition: opacity .3s linear;
+  }
+
+  .popup-fade-enter, .popup-fade-leave-to {
+    opacity: 0;
+  }
+
+  .popup-fade-leave-active, .popup-fade-leave-to {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  @media screen and (max-width: 786px) and (orientation: portrait) {
+    .scene {
+      height: initial;
+
+      &__room {
+        height: 300px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 640px) and (orientation: portrait) {
+    .scene {
+      height: initial;
+
+      &__room {
+        height: 100px;
+      }
+
+      &__buttons {
+        position: static;
+        display: flex;
+
+        .scene-button {
+          width: 50%;
+          position: relative;
+          min-height: 50px;
+
+          & + & {
+            border: none;
+          }
+
+          &:not(:last-child) {
+            &::after {
+              content: '';
+              height: 100%;
+              width: 2px;
+              top: 0;
+              right: 0;
+              position: absolute;
+              background-color: #f9f9f9;
+            }
+          }
+        }
+      }
+
+      &__popups {
+        width: 100%;
+        top: 50px;
+        left: 0;
+      }
+
+      &-popup {
+        &-room {
+          &__btn {
+            display: flex;
+            justify-content: space-around;
+          }
+        }
+      }
+    }
+
+    .popup-fade-leave-active, .popup-fade-leave-to {
+      position: absolute;
+      top: 0;
+      width: 100%;
     }
   }
 </style>
