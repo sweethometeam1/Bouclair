@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <Container>
+    <Container class="app-container">
       <Scene type="livingroom" />
       <Sidebar />
     </Container>
@@ -34,6 +34,13 @@ export default class App extends Vue {}
 #app {
   font-family: 'CircularStd', sans-serif;
   color: #000000;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-container {
+  flex: 1 0 auto;
 }
 
 * {
@@ -64,5 +71,26 @@ button {
   min-width: 300px;
   width: 300px;
   margin-left: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: 640px) and (max-width: 768px) and (orientation: landscape) {
+  .app-container {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    margin-left: 15px;
+  }
 }
 </style>
