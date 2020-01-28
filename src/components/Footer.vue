@@ -40,6 +40,7 @@ export default class Header extends Vue {
   .footer {
     width: 100%;
     background-color: $footer-bg;
+    flex: 0 0 auto;
 
     &-container {
       display: flex;
@@ -66,13 +67,26 @@ export default class Header extends Vue {
       width: 300px;
       justify-content: center;
     }
+  }
 
-    @media screen and (max-width: 1170px) {
-      padding: 0 15px;
+  @media screen and (max-width: 768px) {
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      z-index: 1;
     }
+  }
 
-    @media screen and (max-width: 420px) {
-      display: none;
+  @media screen and (max-width: 370px) {
+    .footer {
+      &-container__item {
+        width: 50%;
+      }
+
+      &-button {
+        width: 100%;
+      }
     }
   }
 </style>
